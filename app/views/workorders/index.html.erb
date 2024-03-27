@@ -1,0 +1,28 @@
+<h1>Work Orders</h1>
+
+<a href="<%= new_workorder_path %>"><button type="button" class="btn btn-primary">New Workorder</button></a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Item</th>
+      <th scope="col">Status</th>
+      <th scope="col">Created</th>
+      <th scope="col">Last Changed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workorders.each do |wo| %>
+      <tr>
+      <td><a href="/workorders/<%= wo.id %>/edit"><%= wo.id %></a></td>
+      <td><%= wo.customer %></td>
+      <td><%= wo.item %></td>
+      <td><%= wo.status %></td>
+      <td><%= wo.created_at %></td>
+      <td><%= wo.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

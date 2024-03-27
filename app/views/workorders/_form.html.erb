@@ -1,0 +1,29 @@
+<%= form_with model: @workorder do |form| %>
+  <div>
+    <%= form.label :customer %></br>
+    <%= form.text_field :customer %></br>
+    <% @workorder.errors.full_messages_for(:customer).each do |message|%>
+      <div><%= message %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :item %></br>
+    <%= form.text_area :item %></br>
+    <% @workorder.errors.full_messages_for(:item).each do |message|%>
+      <div><%= message %>
+    <% end %>
+  </div>
+
+    <div>
+    <%= form.label :item %></br>
+    <%= form.select :status, ['New', 'Working', 'Done'] %></br>
+    <% @workorder.errors.full_messages_for(:item).each do |message|%>
+      <div><%= message %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
