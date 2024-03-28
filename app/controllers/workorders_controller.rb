@@ -1,6 +1,8 @@
 class WorkordersController < ApplicationController
+  before_action :authenticate_user!, except: %i[show index]
+
   def index
-    @workorders = Workorder.all
+    @workorders = Workorder.all.order(created_at: :desc)
   end
 
   def show
@@ -14,6 +16,7 @@ class WorkordersController < ApplicationController
 
   def create
     @workorder = Workorder.new(workorder_params)
+    @workorder.user = current_user
 
     if @workorder.save
       redirect_to @workorder
@@ -30,6 +33,10 @@ class WorkordersController < ApplicationController
     if @workorder.update(workorder_params)
       redirect_to @workorder
     end
+  end
+
+  def destroy
+    @workorder.destroy!
   end
 
   private
