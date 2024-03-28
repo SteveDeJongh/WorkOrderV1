@@ -9,6 +9,7 @@ class WorkordersController < ApplicationController
 
   def new
     @workorder = Workorder.new
+    @customers = Customer.all
   end
 
   def create

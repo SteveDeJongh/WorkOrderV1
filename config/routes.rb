@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cust_items
+  resources :customers
   root "workorders#index"
 
   resources :workorders

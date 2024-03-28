@@ -1,6 +1,8 @@
 <h1>Work Orders</h1>
 
-<a href="<%= new_workorder_path %>"><button type="button" class="btn btn-primary">New Workorder</button></a>
+<%= link_to(new_workorder_path) do %>
+  <button type="button" class="btn btn-primary">New Workorder</button>
+<% end %>
 
 <table class="table">
   <thead>
@@ -16,7 +18,7 @@
   <tbody>
     <% @workorders.each do |wo| %>
       <tr>
-      <td><a href="/workorders/<%= wo.id %>/edit"><%= wo.id %></a></td>
+      <td><%= link_to "#{wo.id}",  edit_workorder_path(wo.id) %></td>
       <td><%= wo.customer %></td>
       <td><%= wo.item %></td>
       <td><%= wo.status %></td>
