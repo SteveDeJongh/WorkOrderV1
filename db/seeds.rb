@@ -10,6 +10,7 @@
 #
 
 User.create(email: 'test@case.com', password: 'password', password_confirmation: 'password', name: 'Test Name')
+User.create(email: 'John@doe.com', password: 'password', password_confirmation: 'password', name: 'John Doe')
 
 10.times do |x|
   Workorder.create(

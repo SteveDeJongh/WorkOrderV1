@@ -21,6 +21,18 @@ class CommentsController < ApplicationController
     redirect_to workorder_path(@workorder)
   end
 
+  def update
+    @comment = @workorder.comments.find(params[:id])
+
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html {redirect_to workorder_path(@workorder), notice: 'Comment has been updated'}
+      else
+        format.html {redirect_to workorder_path(@workorder), alert: 'Comment was not updated.'}
+      end
+    end
+  end
+
   private
 
   def set_workorder

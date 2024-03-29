@@ -5,11 +5,18 @@
   <h5>Status</h5>
   <p><%= @workorder.status %></p>
 
-  <%= @blah %>
+  <h4>Comments</h4>
 
-  <%= render 'comments/form', workorder: @workorder %>
+  <%= render 'comments/form', 
+    workorder: @workorder, 
+    comment: @workorder.comments.build, 
+    submit_label: "Post Comment" %>
+
+  <br/>
 
   <% @comments.each do |comment| %>
-    <%= render 'comments/comment', workorder: @workorder, comment: comment %>
+    <%= render 'comments/comment', 
+    workorder: @workorder, 
+    comment: comment %>
   <% end %>
 </div>
