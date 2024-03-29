@@ -9,7 +9,7 @@
 #   end
 #
 
-User.create(email: 'text@case.com', password: 'password', password_confrimation: 'password')
+User.create(email: 'test@case.com', password: 'password', password_confirmation: 'password', name: 'Test Name')
 
 10.times do |x|
   Workorder.create(
@@ -17,4 +17,14 @@ User.create(email: 'text@case.com', password: 'password', password_confrimation:
     item: 'Kona' + (x + 1).to_s,
     status: 'Open',
     user_id: 1, )
+end
+
+3.times do |x|
+  Customer.create(
+    firstName: 'Cust',
+    lastName: 'One',
+    email: 'cust@one.com',
+    phone: "#{(x + 1).to_s * 3}-222-3333",
+    city: 'Vancouver'
+  )
 end

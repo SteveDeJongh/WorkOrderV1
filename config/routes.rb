@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :customers
   root "dashboard#index"
 
-  resources :workorders
+  resources :workorders do
+    # /workorders/1/comments/1
+    resources :comments
+  end
   # get "/workorders", to: "workorders#index"
   # get "/workorders/:id", to: "workorders#show"
 end

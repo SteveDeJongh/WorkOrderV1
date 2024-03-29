@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :workorders
+  has_many :comments, dependent: :destroy #comments will be destoyed if user is deleted.
 end

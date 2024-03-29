@@ -19,7 +19,7 @@
   <tbody>
     <% @workorders.each do |wo| %>
       <tr>
-        <td><%= link_to wo.id,  edit_workorder_path(wo.id) %></td>
+        <td><%= link_to wo.id, workorder_path(wo.id) %></td>
         <td><%= wo.customer %></td>
         <td><%= wo.item %></td>
         <td><%= wo.status %></td>

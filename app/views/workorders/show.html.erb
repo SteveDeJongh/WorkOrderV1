@@ -1,5 +1,15 @@
-<h1><%= @workorder.customer %><h1>
-<h3>Item</h3>
-<p><%= @workorder.item %></p>
-<h5>Status</h5>
-<p><%= @workorder.status %></p>
+<div class="container">
+  <h1><%= @workorder.customer %><h1>
+  <h3>Item</h3>
+  <p><%= @workorder.item %></p>
+  <h5>Status</h5>
+  <p><%= @workorder.status %></p>
+
+  <%= @blah %>
+
+  <%= render 'comments/form', workorder: @workorder %>
+
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', workorder: @workorder, comment: comment %>
+  <% end %>
+</div>

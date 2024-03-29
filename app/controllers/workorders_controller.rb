@@ -7,6 +7,7 @@ class WorkordersController < ApplicationController
 
   def show
     @workorder = Workorder.find(params[:id])
+    @comments = @workorder.comments.order(created_at: :desc)
   end
 
   def new
