@@ -12,20 +12,15 @@
 User.create(email: 'test@case.com', password: 'password', password_confirmation: 'password', name: 'Test Name')
 User.create(email: 'John@doe.com', password: 'password', password_confirmation: 'password', name: 'John Doe')
 
+Customer.create(firstName: 'Steve', lastName: 'Name', email: 'cust@hotmail.com', phone: "111-111-1111", city: 'Vancouver')
+Customer.create(firstName: 'John', lastName: 'Roberts', email: 'cust@gmail.com', phone: "222-222-2222", city: 'Montreal')
+Customer.create(firstName: 'Bob', lastName: 'Gee', email: 'cust@yahoo.com', phone: "333-333-3333", city: 'Calgary')
+Customer.create(firstName: 'Rob', lastName: 'Jones', email: 'cust@google.com', phone: "444-444-4444", city: 'New York')
+
 10.times do |x|
   Workorder.create(
-    customer: 'Steve' + (x + 1).to_s,
+    customer: 'Steve' + 3.to_s,
     item: 'Kona' + (x + 1).to_s,
     status: 'Open',
     user_id: 1, )
-end
-
-3.times do |x|
-  Customer.create(
-    firstName: 'Cust',
-    lastName: 'One',
-    email: 'cust@one.com',
-    phone: "#{(x + 1).to_s * 3}-222-3333",
-    city: 'Vancouver'
-  )
 end

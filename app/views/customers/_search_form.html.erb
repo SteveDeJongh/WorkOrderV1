@@ -1,0 +1,4 @@
+<%= search_form_for @q do |f| %>
+    <%= f.search_field :firstName_or_lastName_or_email_or_phone_or_city_cont, placeholder: "Search Customers..." %>
+    <%= f.submit "Search" %>
+<% end %>
