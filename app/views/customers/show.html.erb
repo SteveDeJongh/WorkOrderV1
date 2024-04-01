@@ -1,10 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @customer %>
-
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Customer Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Items</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Work Orders</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <%= render @customer%>
+  </div>
+</div>
+<br>
 <div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
-
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+  <%= link_to "Back to all customers", customers_path, class:"btn btn-primary"%>
 </div>

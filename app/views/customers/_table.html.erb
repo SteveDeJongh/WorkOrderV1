@@ -2,10 +2,12 @@
 
 <a href="<%= new_customer_path %>"><button type="button" class="btn btn-primary">New Customer</button></a>
 <br>
-<br>
-<%= render 'customers/search_form' %>
-<br>
-<table class="table">
+<% if !current_page?(root_path) %>
+  <br>
+    <%= render 'customers/search_form' %>
+  <br>
+<% end %>
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -18,7 +20,7 @@
   </thead>
   <tbody>
       <% @customers.each do |customer| %>
-        <%= render customer %>
+        <%= render 'customers/customerrow', customer: customer %>
       <% end %>
   </tbody>
 </table>
