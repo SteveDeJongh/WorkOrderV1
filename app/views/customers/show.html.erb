@@ -1,21 +1,30 @@
 <p style="color: green"><%= notice %></p>
-
+<%= javascript_include_tag('customers.js') %>
 <div class="card">
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Customer Info</a>
+        <button id="detailsTab" class="nav-link active">Customer Details</button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Items</a>
+        <%# <%= link_to 'Items', root_path ,class:"nav-link"%>
+        <button id="itemsTab" class="nav-link">Items</button>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Work Orders</a>
+        <%# <a class="nav-link">Work Orders</a> %>
+        <button id="workOrdersTab" class="nav-link">WorkOrders</button>
       </li>
     </ul>
   </div>
-  <div class="card-body">
+  <div id="detailsDiv"class="card-body">
     <%= render @customer%>
+  </div>
+  <div id="itemsDiv"class="card-body" style="display: none;">
+    <%= button_to "Add Item", new_cust_item_path, class:"btn btn-primary" %>
+    <%= render "cust_items/table" %>
+  </div>
+  <div id="workOrdersDiv"class="card-body" style="display:none;">
+    <%= @workorders %>
   </div>
 </div>
 <br>

@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     # /workorders/1/comments/1
     resources :comments
   end
+
+  # resources :customers do
+  #   resources :cust_items do
+  #     resources :workorders
+  #   end
+  # end
+
   # get "/workorders", to: "workorders#index"
   # get "/workorders/:id", to: "workorders#show"
 end

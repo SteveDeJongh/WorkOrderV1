@@ -17,10 +17,9 @@ Customer.create(firstName: 'John', lastName: 'Roberts', email: 'cust@gmail.com',
 Customer.create(firstName: 'Bob', lastName: 'Gee', email: 'cust@yahoo.com', phone: "333-333-3333", city: 'Calgary')
 Customer.create(firstName: 'Rob', lastName: 'Jones', email: 'cust@google.com', phone: "444-444-4444", city: 'New York')
 
-10.times do |x|
-  Workorder.create(
-    customer: 'Steve' + 3.to_s,
-    item: 'Kona' + (x + 1).to_s,
-    status: 'Open',
-    user_id: 1, )
-end
+CustItem.create(make: "Kona", model: "Process", color: "Red", size: "MD", customer_id: 1)
+CustItem.create(make: "Trek", model: "Marlin", color: "Blue", size: "MD", customer_id: 1)
+CustItem.create(make: "Santa Cruz", model: "Nomad", color: "Red", size: "LG", customer_id: 2)
+CustItem.create(make: "Specialized", model: "Enduro", color: "Black", size: "XL", customer_id: 2)
+
+# Workorder.create(user_id: 1, cust_item_id: 1, customer_id: 1 )

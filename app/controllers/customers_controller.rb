@@ -10,6 +10,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/1 or /customers/1.json
   def show
+    @items = CustItem.all.select { |m| m.customer_id === @customer.id}
+    @workorders = Workorder.all.select { |m| m}
   end
 
   # GET /customers/new

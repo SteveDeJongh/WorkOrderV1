@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Make</th>
+      <th scope="col">Model</th>
+      <th scope="col">Color</th>
+      <th scope="col">Size</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @items.each do |cust_item| %>
+        <%= render 'cust_items/table_item', item: cust_item %>
+      <% end %>
+  </tbody>
+</table>
