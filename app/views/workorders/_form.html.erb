@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-    <div>
+  <div>
     <%= form.label :item %></br>
     <%= form.select :status, ['Open', 'In Progress', 'Complete', 'Waiting Parts', 'Customer Notified', 'Invoiced'] %></br>
     <% @workorder.errors.full_messages_for(:item).each do |message|%>

@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <%= javascript_include_tag('customers.js') %>
+<h2>Customer Profile for: <%= @customer.firstName + ' ' + @customer.lastName %></h2>
 <div class="card">
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
@@ -20,11 +21,14 @@
     <%= render @customer%>
   </div>
   <div id="itemsDiv"class="card-body" style="display: none;">
-    <%= button_to "Add Item", new_cust_item_path, class:"btn btn-primary" %>
     <%= render "cust_items/table" %>
+    <%= link_to "Add Item", new_cust_item_path(cust: @customer), class:"btn btn-primary" %>
   </div>
   <div id="workOrdersDiv"class="card-body" style="display:none;">
-    <%= @workorders %>
+    <%= render "workorders/table" %>
+    <%= link_to(new_workorder_path) do %>
+      <button type="button" class="btn btn-primary">New Workorder</button>
+    <% end %>
   </div>
 </div>
 <br>
