@@ -12,12 +12,12 @@ class WorkordersController < ApplicationController
 
   def new
     @workorder = Workorder.new
-    @customers = Customer.all
   end
 
   def create
     @workorder = Workorder.new(workorder_params)
     @workorder.user = current_user
+    @workorder.status = params[:workorder][:status]
 
     if @workorder.save
       redirect_to @workorder
@@ -43,6 +43,7 @@ class WorkordersController < ApplicationController
   private
 
   def workorder_params
-    params.require(:workorder).permit(:id, :customer, :item, :status)
+    params.require(:workorder).permit(:id, :item_id, :status, :customerName, :itemDesc)
+    params.require(:form).permit(:customer_id, :cust_item_id)
   end
 end

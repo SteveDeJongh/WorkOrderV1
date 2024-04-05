@@ -8,9 +8,9 @@ class Workorder < ApplicationRecord
   private
 
   def set_customer_and_item_values
-    customer = Customer.find(2)
-    cust_item = CustItem.all.select {|m| m.customer_id == 2 && m.id == 3 }[0]
-    self.customer = customer.firstName + " " + customer.lastName
-    self.item = cust_item.make + ' ' + cust_item.model
+    customer = Customer.find(self.customer_id)
+    cust_item = CustItem.all.select {|m| m.customer_id == self.customer_id && m.id == self.cust_item_id }[0]
+    self.customerName = customer.firstName + " " + customer.lastName
+    self.itemDesc = cust_item.make + ' ' + cust_item.model
   end
 end

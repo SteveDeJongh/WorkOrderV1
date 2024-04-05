@@ -1,23 +1,24 @@
-<%= form_with model: @workorder do |form| %>
-  <div>
-    <%= form.label :customer %></br>
-    <%= form.text_field :customer %></br>
-    <% @workorder.errors.full_messages_for(:customer).each do |message|%>
-      <div><%= message %>
-    <% end %>
+<%= form_with model: @workorder, :html => {class: "row g-3"} do |form| %>
+  <%= hidden_field(:form, :customer_id, :value => params[:cust_id]) %>
+  <%= hidden_field(:form, :cust_item_id, :value => params[:item_id]) %>
+
+  <div class="form-group row">
+    <%= form.label "Customer", class:"col-sm-2 col-form-label" %></br>
+    <div class="col-sm-10">
+      <%= form.text_field :customerName, :readonly => true, value: params[:cust_name], class: "form-control-plaintext" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :item %></br>
-    <%= form.text_area :item %></br>
-    <% @workorder.errors.full_messages_for(:item).each do |message|%>
-      <div><%= message %>
-    <% end %>
+  <div class="form-group row">
+    <%= form.label "Item", class:"col-sm-2 col-form-label" %></br>
+    <div class="col-sm-10">
+      <%= form.text_field :itemDesc, :readonly => true, value: params[:item], class: "form-control-plaintext" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :item %></br>
-    <%= form.select :status, ['Open', 'In Progress', 'Complete', 'Waiting Parts', 'Customer Notified', 'Invoiced'] %></br>
+  <div class="form-group row">
+    <%= form.label :status, class:"col-sm-2 col-form-label" %>
+    <%= form.select :status, [['Open'], ['In Progress'], ['Complete'], ['Waiting Parts'], ['Customer Notified'], ['Invoiced']], :html => {class: "form-control"} %></br>
     <% @workorder.errors.full_messages_for(:item).each do |message|%>
       <div><%= message %>
     <% end %>

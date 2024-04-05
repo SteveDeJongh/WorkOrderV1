@@ -23,3 +23,5 @@ CustItem.create(make: "Santa Cruz", model: "Nomad", color: "Red", size: "LG", cu
 CustItem.create(make: "Specialized", model: "Enduro", color: "Black", size: "XL", customer_id: 2)
 
 # Workorder.create(user_id: 1, cust_item_id: 1, customer_id: 1 )
+Workorder.create(status: 'Open', user_id: 1, customer_id: 1, cust_item_id: 1)
+Workorder.create(status: 'Awaiting Parts', user_id: 1, customer_id: 1, cust_item_id: 2)

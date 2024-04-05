@@ -1,9 +1,9 @@
-<tr>
+<tr onclick="window.location='<%= cust_item_path(item)%>'">
   <td><%= item.id %></td>
   <td><%= item.make %></td>
   <td><%= item.model %></td>
   <td><%= item.color %></td>
   <td><%= item.size %></td>
   <td><%= item.id %></td>
-  <td><%= link_to "Create WorkOrder", new_workorder_path %></td>
+  <td><%= link_to "Create WorkOrder", new_workorder_path(cust_id: @customer, cust_name: @customer.firstName + ' ' + @customer.lastName, item: item.make + ' ' + item.model,  item_id: item.id ) %></td>
 </tr>
