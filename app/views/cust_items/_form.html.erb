@@ -32,6 +32,6 @@
 
   <div>
     <%= form.submit class:"btn btn-primary"%>
-    <%= link_to "Cancel", @customer, class: "btn btn-primary"%>
+    <%= link_to "Cancel", customer_path(params[:cust]), class: "btn btn-primary"%>
   </div>
 <% end %>
