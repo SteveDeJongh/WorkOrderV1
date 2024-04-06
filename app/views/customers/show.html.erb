@@ -1,4 +1,3 @@
-<p style="color: green"><%= notice %></p>
 <%= javascript_include_tag("customers.js") %>
 <h2>Customer Profile for: <%= @customer.firstName + ' ' + @customer.lastName %></h2>
 <div class="card">
@@ -26,9 +25,6 @@
   </div>
   <div id="workOrdersDiv"class="card-body" style="display:none;">
     <%= render "workorders/table" %>
-    <%= link_to(new_workorder_path) do %>
-      <button type="button" class="btn btn-primary">New Workorder</button>
-    <% end %>
   </div>
 </div>
 <br>
