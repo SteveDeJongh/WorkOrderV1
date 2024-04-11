@@ -1,0 +1,89 @@
+<%= form_with(model: product, :html => {class: "row g-3"}) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-6">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :sku, class:"form-label" %>
+    <%= form.text_field :sku, class:"form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :upc, class:"form-label" %>
+    <%= form.number_field :upc, class:"form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :price, class:"form-label" %>
+    <%= form.text_field :price, class:"form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :cost, class:"form-label" %>
+    <%= form.text_field :cost, class:"form-control" %>
+  </div>
+  <div class="inventory-options">
+    <h5>Inventory Control</h5>
+    <div class="col-md-3">
+      <%= form.label :stock, class:"form-label" %>
+      <%= form.number_field :stock, class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label :min, class:"form-label" %>
+      <%= form.number_field :min, class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label :max, class:"form-label" %>
+      <%= form.number_field :max, class:"form-control" %>
+    </div>
+  </div>
+  <div class="options">
+    <h5>Options</h5>
+    <div class="col-md-6">
+      <%= form.check_box :inventory, class:"form-check-control" %>
+      <%= form.label :inventory, class:"form-label" %>
+    </div>
+    <div class="col-md-6">
+      <%= form.check_box :taxable, class:"form-check-control" %>
+      <%= form.label :taxable, class:"form-label" %>
+    </div>
+    <div class="col-md-6">
+      <%= form.check_box :labour, class:"form-check-control" %>
+      <%= form.label :labour, class:"form-label" %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= form.label "Image URL", class:"form-label" %>
+    <%= form.text_field :image, class:"form-control" %>
+  </div>
+  <h5>Dimensions</h5>
+  <div class="col-md-3">
+    <%= form.label :weight, class:"form-label" %>
+    <%= form.text_field :weight, class:"form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= form.label :height, class:"form-label" %>
+    <%= form.text_field :height, class:"form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= form.label :length, class:"form-label" %>
+    <%= form.text_field :length, class:"form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= form.label :width, class:"form-label" %>
+    <%= form.text_field :width, class:"form-control" %>
+  </div>
+  <div class="col-12">
+    <%= form.submit class:"btn btn-primary" %>
+    <%= link_to "Cancel", @product, class: "btn btn-primary" %>
+  </div>
+<% end %>
