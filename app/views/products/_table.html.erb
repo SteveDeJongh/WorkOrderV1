@@ -1,0 +1,29 @@
+<h1>Products</h1>
+
+<a href="<%= new_product_path %>"><button type="button" class="btn btn-primary">Add Product</button></a>
+<br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Sku</th>
+        <th scope="col">UPC</th>
+        <th scope="col">Price</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Min</th>
+        <th scope="col">Max</th>
+        <th scope="col">Inventoried</th>
+        <th scope="col">Taxable</th>
+        <th scope="col">Labour</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+          <%= render 'products/productrow', product: product %>
+        <% end %>
+    </tbody>
+  </table>
+</div>

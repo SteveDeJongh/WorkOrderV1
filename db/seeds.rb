@@ -32,3 +32,19 @@ Workorder.create(status: 'Invoiced', user_id: 1, customer_id: 2, cust_item_id: 3
 Workorder.create(status: 'Open', user_id: 1, customer_id: 2, cust_item_id: 4)
 Workorder.create(status: 'Invoiced', user_id: 1, customer_id: 3, cust_item_id: 5)
 Workorder.create(status: 'Awaiting Parts', user_id: 1, customer_id: 4, cust_item_id: 7)
+
+5.times do |x|
+  ['Bike', 'part', 'clothing', 'service', 'accessory'].each_with_index do |cat, idx|
+    x = x + 10
+    idx = idx + 10
+    Product.create(name: (cat + x.to_s).capitalize,
+                    sku: (cat.upcase + x.to_s).ljust(10, x.to_s),
+                    upc: (x + idx).to_s.rjust(12,(x + idx).to_s),
+                    price: x * idx,
+                    cost: (idx + x) * 3,
+                    stock: x * idx / 7,
+                    inventory: true,
+                    labour: (cat === "service"),
+                    labourTime: (cat === "service" ? idx * x * 3: 0))
+  end
+end
