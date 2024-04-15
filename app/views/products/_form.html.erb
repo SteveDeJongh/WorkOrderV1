@@ -67,10 +67,6 @@
         <%= form.check_box :inventory, class:"form-check-control" %>
         <%= form.label :inventory, class:"form-label" %>
       </div>
-      <div class="col-md-6">
-        <%= form.check_box :taxable, class:"form-check-control" %>
-        <%= form.label :taxable, class:"form-label" %>
-      </div>
     </div>
   <% else %>
     <div class="options">
@@ -78,36 +74,6 @@
       <div class="col-md-6">
         <%= form.check_box :inventory, class:"form-check-control", checked: true %>
         <%= form.label :inventory, class:"form-label" %>
-      </div>
-      <div class="col-md-6">
-        <%= form.check_box :taxable, class:"form-check-control", checked: true %>
-        <%= form.label :taxable, class:"form-label" %>
-      </div>
-    </div>
-  <% end %>
-
-  <% if params[:action] === 'edit' %>
-    <div class="options">
-      <h5>Labour Details</h5>
-      <div class="col-md-6">
-        <%= form.check_box :labour, class:"form-check-control" %>
-        <%= form.label :labour, class:"form-label" %>
-      </div>
-      <div class="col-md-12">
-        <%= form.label "Labour Time In Minutes", class:"form-label" %>
-        <%= form.text_field :labourTime, class:"form-control" %>
-      </div>
-    </div>
-  <% else %>
-    <div class="labour">
-      <h5>Labour Details</h5>
-      <div class="col-md-6">
-        <%= form.check_box :labour, class:"form-check-control" %>
-        <%= form.label :labour, class:"form-label" %>
-      </div>
-      <div class="col-md-3">
-      <%= form.label "Labour Time In Minutes", class:"form-label" %>
-      <%= form.text_field :labourTime, class:"form-control" %>
       </div>
     </div>
   <% end %>

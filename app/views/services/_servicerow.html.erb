@@ -1,0 +1,8 @@
+<tr onclick="window.location='<%=service_path(service)%>'">
+  <td><%= service.id %></td>
+  <td style="white-space: nowrap"><%= service.name %></td>
+  <td><%= service.desc %></td>
+  <td><%= service.sku %></td>
+  <td><%= number_to_currency(service.price) %></td>
+  <td><%= service.duration %></td>
+</tr>

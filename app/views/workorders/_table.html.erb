@@ -17,8 +17,8 @@
         <td><%= wo.customerName %></td>
         <td><%= wo.itemDesc %></td>
         <td><%= wo.status %></td>
-        <td><%= wo.created_at %></td>
-        <td><%= wo.updated_at %></td>
+        <td><%= wo.created_at.to_formatted_s(:long) %></td>
+        <td><%= wo.updated_at.to_formatted_s(:nice) %></td>
         <td><%= wo.user.name %></td>
       </tr>
     <% end %>

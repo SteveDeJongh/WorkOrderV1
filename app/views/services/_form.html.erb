@@ -1,0 +1,43 @@
+<%= form_with(model: service, :html => {class: "row g-3"}) do |form| %>
+  <% if service.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+        <% service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="details row">
+    <h5>Details</h5>
+    <div class="col-md-12">
+      <%= form.label "Name", class:"form-label" %>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div class="col-md-12">
+      <%= form.label "Description", class:"form-label" %>
+      <%= form.text_area :desc, class:"form-control" %>
+    </div>
+  </div>
+  <div class="pricing row">
+    <h5>Pricing</h5>
+    <div class="col-md-3">
+      <%= form.label :price, class:"form-label" %>
+      <%= form.text_field :price, class:"form-control" %>
+    </div>
+  </div>
+  <div class="labour-options row">
+    <h5>Labour Details</h5>
+    <div class="col-md-3">
+      <%= form.label "Duration (minutes)", class:"form-label" %>
+      <%= form.number_field :duration, class:"form-control" %>
+    </div>
+  </div>
+  <div class="col-12">
+    <%= form.submit class:"btn btn-primary" %>
+    <%= link_to "Cancel", @service, class: "btn btn-danger" %>
+  </div>
+<% end %>

@@ -34,7 +34,7 @@ Workorder.create(status: 'Invoiced', user_id: 1, customer_id: 3, cust_item_id: 5
 Workorder.create(status: 'Awaiting Parts', user_id: 1, customer_id: 4, cust_item_id: 7)
 
 5.times do |x|
-  ['Bike', 'part', 'clothing', 'service', 'accessory'].each_with_index do |cat, idx|
+  ['Bike', 'part', 'clothing', 'accessory'].each_with_index do |cat, idx|
     x = x + 10
     idx = idx + 10
     Product.create(name: (cat + x.to_s).capitalize,
@@ -43,8 +43,14 @@ Workorder.create(status: 'Awaiting Parts', user_id: 1, customer_id: 4, cust_item
                     price: x * idx,
                     cost: (idx + x) * 3,
                     stock: x * idx / 7,
-                    inventory: true,
-                    labour: (cat === "service"),
-                    labourTime: (cat === "service" ? idx * x * 3: 0))
+                    inventory: true)
   end
+end
+
+(1..5).each do |x|
+  Service.create(name: "Service" + "#{x}",
+                 sku: "LB" + String(x).rjust(5, "0"),
+                 price: x * 10,
+                 duration: x * 5,
+                 desc: "This service #{x} takes #{x * 5} minutes and does all sorts of things!")
 end

@@ -1,0 +1,23 @@
+<h1>Services</h1>
+
+<a href="<%= new_service_path %>"><button type="button" class="btn btn-primary">Add Service</button></a>
+<br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Sku</th>
+        <th scope="col">Price</th>
+        <th scope="col">Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @services.each do |service| %>
+          <%= render 'services/servicerow', service: service %>
+        <% end %>
+    </tbody>
+  </table>
+</div>
