@@ -7,20 +7,22 @@
     <%= render 'customers/search_form' %>
   <br>
 <% end %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">City</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @customers.each do |customer| %>
-        <%= render 'customers/customerrow', customer: customer %>
-      <% end %>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">City</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @customers.each do |customer| %>
+          <%= render 'customers/customerrow', customer: customer %>
+        <% end %>
+    </tbody>
+  </table>
+</div>

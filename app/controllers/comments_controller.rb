@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      flash[:notice] = "Comment was created."
+      flash[:notice] = "Comment added!"
       redirect_to workorder_path(@workorder)
     else
       flash[:alert] = "Failed to create comment."
